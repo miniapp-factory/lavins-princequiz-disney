@@ -1,34 +1,24 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import { Inter } from "next/font/google";
 import { MiniAppProvider } from "@/components/context/miniapp-provider";
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
-import { description, title } from "@/lib/metadata";
 
-const inter = localFont({
-  src: "./InterVariable.ttf",
-});
+const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title,
-  description,
+export const metadata = {
+  title: "Disney Princess Quiz",
+  description: "Find out which Disney princess you are most similar to by answering 5 fun questions!",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={inter.className}>
         <MiniAppProvider>
-          <div className="font-sans min-h-screen flex flex-col place-content-between">
-            <Header />
-            {children}
-            <Footer />
-          </div>
+          {children}
         </MiniAppProvider>
       </body>
     </html>
