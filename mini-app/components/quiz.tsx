@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { description, title, url } from "@/lib/metadata";
+import { url } from "@/lib/metadata";
 
 type Princess = "Cinderella" | "Belle" | "Ariel" | "Rapunzel" | "Tiana";
 
@@ -93,7 +93,6 @@ export default function Quiz() {
     const topPrincesses = Object.entries(scores)
       .filter(([, score]) => score === maxScore)
       .map(([princess]) => princess as Princess);
-    // In case of tie, pick first
     setResult(topPrincesses[0]);
   };
 
